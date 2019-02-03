@@ -17,8 +17,7 @@ from django.conf.urls import url, include
 from settingsandattributes.urls import settingsandattributesurls
 from lifestyleuser.urls import userurls
 from aws.urls import awsurls
-from passwordvalidateview import PasswordValidate
-
+from passwordvalidateview import PasswordValidate\
 from verificationphotocode.urls import verificationphotourls
 
 
