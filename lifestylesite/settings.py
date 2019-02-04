@@ -81,10 +81,12 @@ TEMPLATES = [
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', default=False, cast=bool)
 CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTITALS', default=False, cast=bool)
 CORS_ORIGIN_WHITELIST = (
-    'localhost:4200',
+    'libidinouslounge.com',
+    'localhost:4200'
 )
 CORS_ORIGIN_REGEX_WHITELIST = (
-    'localhost:4200',
+    'libidinouslounge.com',
+    'localhost:4200'
 )
 
 WSGI_APPLICATION = 'lifestylesite.wsgi.application'
