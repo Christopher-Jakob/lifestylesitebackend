@@ -160,5 +160,5 @@ AWS_REGION = config('AWS_REGION')
 
 # aws s3
 
-AWS_S3_BUCKET = libidinouslounge
+AWS_S3_BUCKET = 'libidinouslounge'
 AWS_BUCKET_ROOT_URI = config('AWS_BUCKET_ROOT_URI')
