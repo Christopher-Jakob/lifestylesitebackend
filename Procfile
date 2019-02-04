@@ -1,1 +1,1 @@
-web: gunicorn libidinouslounge.wsgi --log-file -
+web: gunicorn lifestylesite.wsgi --log-file -
