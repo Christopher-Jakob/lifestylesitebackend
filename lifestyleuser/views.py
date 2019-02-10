@@ -23,14 +23,16 @@ from transmission.email.signups.signupemails import sendemail
 class SwingerUserSignup(APIView):
 
     def post(self, request, *args, **kwargs):
+        print('fuck you mother fucker')
         data = SwingerSignupserializer(data=request.data)
         if data.is_valid(raise_exception=True):
             data = data.validated_data
             email = data.get('email')
-            active = data.get('active')
+            active = data.get('is_active')
             prelaunchsignup = data.get('prelaunchsignup')
             expandtoareaemail = data.get('expandtoareaemail')
             if expandtoareaemail != None:
+                print('this is a swinger request signup')
                 expandtoareacountry = data.get('expandtoareacountry')
                 country = get_object_or_404(Country, pk=expandtoareacountry)
                 expandtoareastate = data.get('expandtoareastate')
@@ -57,10 +59,10 @@ class SwingerUserSignup(APIView):
                         status=status.HTTP_400_BAD_REQUEST)
 
                 try:
-                    print('its trying to create a user')
+                    print('its trying to create a user with request')
                     user = LifestyleUser.objects.create_user(email=email, is_active=active, isswinger=True ,
                                                              prelaunchsignup = prelaunchsignup)
-                    swingpreference = data.get('swingerpreference')
+                    swingpreference = data.get('swingertype')
                     swingpreference = get_object_or_404(SwingPreference, pk=swingpreference)
                     swinger = Swinger(user=user, swingertype=swingpreference, country=country,
                                       state=state, city=city)
@@ -80,6 +82,7 @@ class SwingerUserSignup(APIView):
 
 
             if email != None:
+                print('this is a swinger full sign up')
                 country = data.get('country')
                 country = get_object_or_404(Country, pk=country)
                 state = data.get('state')
@@ -106,9 +109,10 @@ class SwingerUserSignup(APIView):
                         status=status.HTTP_400_BAD_REQUEST)
 
                 try:
+                    print('user is being created in full')
                     user = LifestyleUser.objects.create_user(email=email, is_active=active, isswinger=True,
                                                              prelaunchsignup=prelaunchsignup)
-                    swingpreference = data.get('swingerpreference')
+                    swingpreference = data.get('swingertype')
                     swingpreference = get_object_or_404(SwingPreference, pk=swingpreference)
                     username = data.get('username')
                     sex1 = data.get('sex1')

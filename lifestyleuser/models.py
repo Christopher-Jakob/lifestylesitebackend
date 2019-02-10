@@ -46,6 +46,8 @@ class LifestyleUser(AbstractBaseUser):
     email = models.EmailField(unique = True)
     is_active = models.BooleanField(default=False)
     isadmin = models.BooleanField(default=False)
+    isswingerapproved = models.BooleanField(default=False)
+    ishostapproved = models.BooleanField(default=False)
     isswinger = models.BooleanField(default = False)
     ishost = models.BooleanField(default=False)
     prelaunchsignup = models.BooleanField(default=False)

@@ -45,3 +45,8 @@ class SwingerEthnicgroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = SwingerEthnicgroups
         fields = ('__all__')
+
+class SwingerSignupDeclineReasonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SwingerSignupDeclineReason
+        fields = ('__all__')

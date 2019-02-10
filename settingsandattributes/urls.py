@@ -4,6 +4,7 @@ from hostypeviews import *
 from swingertypeviews import *
 from sextypeviews import *
 from swingerethnictypes import *
+from SwingerSignupDeclineReasonViews import *
 
 
 countryurls = [
@@ -40,12 +41,19 @@ swingerethnictypes = [
     url('ethnictypedetail/(?P<pk>([0-9]+))', SwingerEthnictypedetail.as_view())
 ]
 
+swingersignupdeclinereasons = [
+    url('swingersignupdeclinereason/(?P<pk>([0-9]+))', DeleteSwingerSignupDeclineReasonView),
+    url('swingersignupdeclinereason', SwingerSignupDeclineReasonView.as_view()),
+
+]
+
 settingsandattributesurls = [
     url('country/',include(countryurls)),
     url('stateandcity/',include(stateandcityurls)),
     url('hosttype/', include(hosttypeurls)),
     url('swingertype/', include(swingertypeurls)),
     url('sextype/',include(sextypeurls)),
-    url('ethnictype/',include(swingerethnictypes))
+    url('ethnictype/',include(swingerethnictypes)),
+    url('swingerdeclinereason/', include(swingersignupdeclinereasons))
 
 ]

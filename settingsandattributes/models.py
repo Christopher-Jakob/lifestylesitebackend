@@ -44,3 +44,6 @@ class HostTypes(models.Model):
 class SwingerEthnicgroups(models.Model):
     name = models.CharField(max_length = 100)
 
+
+class SwingerSignupDeclineReason(models.Model):
+    name = models.CharField(max_length = 200)
