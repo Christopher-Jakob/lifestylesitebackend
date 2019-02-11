@@ -40,9 +40,14 @@ class SwingerSignupserializer(serializers.Serializer):
     ethnicity1 = serializers.IntegerField(allow_null=True)
     ethnicity2 = serializers.IntegerField(allow_null=True)
     verificationphoto = serializers.CharField(max_length=300)
+    verificationphotocode = serializers.IntegerField()
     verificationphotokey = serializers.CharField(max_length=300)
     prelaunchsignup = serializers.BooleanField(default=False)
 
+
+# used when a swinger user application is declined
+class SwingerApplicationDeclineSerializer(serializers.Serializer):
+    declinereason = serializers.CharField(max_length=200)
 
 
 

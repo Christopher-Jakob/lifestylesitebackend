@@ -18,6 +18,11 @@ from transmission.email.signups.signupemails import sendemail
 
 # Create your views here.
 
+
+# used for declineing or accepting a swinger application
+class SwingerDeclineAcceptView(APIView):
+    
+
 # used for swinger signup
 
 class SwingerUserSignup(APIView):
@@ -117,9 +122,9 @@ class SwingerUserSignup(APIView):
                     username = data.get('username')
                     sex1 = data.get('sex1')
                     sex2 = data.get('sex2')
-                    birthday1 = data.get('birthday1')
+                    birthday1 = data.get('birthdayone')
                     verificationphotocode = data.get('verificationphotocode')
-                    birthday2 = data.get('birthday2')
+                    birthday2 = data.get('birthdaytwo')
                     ethnicity1 = data.get('ethnicity1')
                     ethnicity1 = get_object_or_404(SwingerEthnicgroups, pk=ethnicity1)
                     ethnicity2 = data.get('ethnicity2')
