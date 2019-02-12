@@ -9,7 +9,7 @@ from swingers.models import Swinger
 from models import *
 from rest_framework import status
 from hosts.models import Hosts
-from serializers import Usersignupserializer, SwingerSignupserializer
+from serializers import Usersignupserializer, SwingerSignupserializer, SwingerApplicationDeclineSerializer
 from settingsandattributes.models import *
 from django.db import IntegrityError
 from transmission.email.validation.emailvalidation import validateemail
@@ -21,14 +21,33 @@ from transmission.email.signups.signupemails import sendemail
 
 # used for declineing or accepting a swinger application
 class SwingerDeclineAcceptView(APIView):
-    
+
+    def put(self, request, *args, **kwargs):
+        data = SwingerApplicationDeclineSerializer(data=request.data)
+        if data.is_valid(raise_exception=True):
+            data = data.validated_data
+            declinereason = data.get('declinereason')
+            decline = data.get('decline')
+            pk = data.get('pk')
+            if decline:
+                user = get_object_or_404(LifestyleUser, pk=pk)
+                # function to send email to user
+                user.delete()
+            if not decline:
+                user = get_object_or_404(LifestyleUser, pk=pk)
+                # function to send email to user
+                user.isswingerapproved = True
+                user.save()
+            return Response(status=status.HTTP_200_OK)
+
+
+
 
 # used for swinger signup
 
 class SwingerUserSignup(APIView):
 
     def post(self, request, *args, **kwargs):
-        print('fuck you mother fucker')
         data = SwingerSignupserializer(data=request.data)
         if data.is_valid(raise_exception=True):
             data = data.validated_data

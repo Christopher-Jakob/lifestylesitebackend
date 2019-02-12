@@ -23,6 +23,15 @@ class Swinger(models.Model):
     verificationphoto = models.CharField(max_length=300, blank=True, null=True)
     verificationphotokey = models.CharField(max_length=300, blank=True, null=True)
     verificationphotocode = models.CharField(max_length=6, blank=True, null=True)
+    wantsinglewoman = models.BooleanField(default=False)
+    wantsingleman = models.BooleanField(default=False)
+    wantsinglets = models.BooleanField(default=False)
+    wantcouplemanwoman = models.BooleanField(default=False)
+    wantcouplewomanwoman = models.BooleanField(default=False)
+    wantcouplewomants = models.BooleanField(default=False)
+    wantcouplemanman = models.BooleanField(default=False)
+    wantcouplemants = models.BooleanField(default=False)
+    wantcoupletsts = models.BooleanField(default=False)
 
 
 

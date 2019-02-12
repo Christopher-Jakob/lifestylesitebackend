@@ -47,7 +47,11 @@ class SwingerSignupserializer(serializers.Serializer):
 
 # used when a swinger user application is declined
 class SwingerApplicationDeclineSerializer(serializers.Serializer):
-    declinereason = serializers.CharField(max_length=200)
+    declinereason = serializers.CharField(max_length=200, allow_null=True)
+    decline = serializers.BooleanField(default=False)
+    pk = serializers.IntegerField()
+
+
 
 
 
