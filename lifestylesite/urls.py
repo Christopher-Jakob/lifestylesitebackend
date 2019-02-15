@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import refresh_jwt_token
+from rest_framework_jwt.views import verify_jwt_token
 from settingsandattributes.urls import settingsandattributesurls
 from lifestyleuser.urls import userurls
 from aws.urls import awsurls
@@ -38,6 +41,10 @@ rootapiurls = [
 
 
 urlpatterns = [
-    url('api/',include(rootapiurls))
+    url('api/',include(rootapiurls)),
+    url(r'^auth-jwt/', obtain_jwt_token),
+    url(r'^auth-jwt-refresh/', refresh_jwt_token),
+    url(r'^auth-jwt-verify/', verify_jwt_token),
+
 
 ]

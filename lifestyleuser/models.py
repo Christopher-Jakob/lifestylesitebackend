@@ -56,7 +56,7 @@ class LifestyleUser(AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = []
     EMAIL_FIELD = 'email'
 
     def __str__(self):

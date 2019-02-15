@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from decouple import config
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'hosts',
     'verificationphotocode',
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework_jwt'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lifestylesite.urls'
+
+AUTH_USER_MODEL = 'lifestyleuser.LifestyleUser'
 
 TEMPLATES = [
     {
@@ -85,12 +89,34 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:4200'
 )
 CORS_ORIGIN_REGEX_WHITELIST = (
+    'libertineconnect.com',
     'libidinouslounge.com',
     'localhost:4200'
 )
 
 WSGI_APPLICATION = 'lifestylesite.wsgi.application'
 
+
+# rest framework settings
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+# jwt settings
+
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=300)
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -105,6 +131,8 @@ DATABASES = {
         'PORT': config('DATABASE_PORT', cast=int),
     }
 }
+
+
 
 
 # Password validation
