@@ -42,7 +42,7 @@ swingerethnictypes = [
 ]
 
 swingersignupdeclinereasons = [
-    url('swingersignupdeclinereason/(?P<pk>([0-9]+))', DeleteSwingerSignupDeclineReasonView),
+    url('swingersignupdeclinereason/(?P<pk>([0-9]+))', DeleteSwingerSignupDeclineReasonView.as_view()),
     url('swingersignupdeclinereason', SwingerSignupDeclineReasonView.as_view()),
 
 ]

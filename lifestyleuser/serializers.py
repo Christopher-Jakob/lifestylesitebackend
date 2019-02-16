@@ -52,6 +52,14 @@ class SwingerApplicationDeclineSerializer(serializers.Serializer):
     pk = serializers.IntegerField()
 
 
+# used when a user is getting self
+
+class LifestyleUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        models = LifestyleUser
+        fields = ('email', 'isadmin', 'isswingerapproved', 'ishostapproved',
+                  'isswinger', 'ishost')
+
 
 
 

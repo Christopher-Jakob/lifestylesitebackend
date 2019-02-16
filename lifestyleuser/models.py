@@ -8,7 +8,7 @@ from django.db import models
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, email, password=None, **extraarguments):
+    def create_user(self, email, password, **extraarguments):
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -19,12 +19,11 @@ class UserManager(BaseUserManager):
             user.save()
             return user
 
-        user.set_pasword(password)
-        user.is_active = True
+        user.set_password(password)
         user.save()
         return user
 
-    def create_superuser(self, email,  password=None, **extraarguments):
+    def create_superuser(self, email,  password, **extraarguments):
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -36,7 +35,7 @@ class UserManager(BaseUserManager):
             user.save()
             return user
 
-        user.set_pasword(password)
+        user.set_password(password)
         user.is_active = True
         user.save()
         return user

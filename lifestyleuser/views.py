@@ -58,6 +58,7 @@ class SwingerUserSignup(APIView):
             if expandtoareaemail != None:
                 print('this is a swinger request signup')
                 expandtoareacountry = data.get('expandtoareacountry')
+                password = data.get('password')
                 country = get_object_or_404(Country, pk=expandtoareacountry)
                 expandtoareastate = data.get('expandtoareastate')
                 state = get_object_or_404(State, pk=expandtoareastate)
@@ -84,7 +85,7 @@ class SwingerUserSignup(APIView):
 
                 try:
                     print('its trying to create a user with request')
-                    user = LifestyleUser.objects.create_user(email=email, is_active=active, isswinger=True ,
+                    user = LifestyleUser.objects.create_user(email=email, password=password, is_active=active, isswinger=True ,
                                                              prelaunchsignup = prelaunchsignup)
                     swingpreference = data.get('swingertype')
                     swingpreference = get_object_or_404(SwingPreference, pk=swingpreference)
@@ -250,7 +251,6 @@ class LifeStyleUser(APIView):
                         'failcontext': failcontext
                     },
                     status=status.HTTP_400_BAD_REQUEST)
-
 
 
 
