@@ -35,7 +35,8 @@ class SwingPreference(models.Model):
     sex1 = models.ForeignKey(SexType, related_name='sex1', on_delete=models.DO_NOTHING, blank=True, null=True)
     sex2 = models.ForeignKey(SexType, related_name='sex2', on_delete=models.DO_NOTHING, blank=True, null=True)
 
-
+class SexualOrientation(models.Model):
+    name = models.CharField(max_length = 100)
 
 class HostTypes(models.Model):
     name = models.CharField(max_length = 100)

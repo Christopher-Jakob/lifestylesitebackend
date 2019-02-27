@@ -16,6 +16,8 @@ class Swinger(models.Model):
     username = models.CharField(max_length=100, blank=True, null=True)
     sex1 = models.ForeignKey(SexType, related_name='swingersex1', on_delete=models.DO_NOTHING, blank=True, null=True)
     sex2 = models.ForeignKey(SexType, related_name='swingersex2', on_delete=models.DO_NOTHING, blank=True, null=True)
+    orientation1 = models.ForeignKey(SexualOrientation, related_name='orientation1', on_delete=models.DO_NOTHING, blank=True, null=True)
+    orientation2 = models.ForeignKey(SexualOrientation, related_name='orientation2', on_delete=models.DO_NOTHING, blank=True, null=True)
     birthday1 = models.DateField(blank=True, null=True)
     birthday2 = models.DateField(blank=True, null=True)
     ethnicity1 = models.ForeignKey(SwingerEthnicgroups, related_name='ethnicity1', on_delete=models.DO_NOTHING, blank=True, null=True)

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from models import LifestyleUser
+from swingers.serializers import SwingerSerializer
 
 
 # used on the landing page pre launch
@@ -55,10 +56,12 @@ class SwingerApplicationDeclineSerializer(serializers.Serializer):
 # used when a user is getting self
 
 class LifestyleUserSerializer(serializers.ModelSerializer):
+    swinger_set = SwingerSerializer()
+
     class Meta:
-        models = LifestyleUser
+        model = LifestyleUser
         fields = ('email', 'isadmin', 'isswingerapproved', 'ishostapproved',
-                  'isswinger', 'ishost')
+                  'isswinger', 'ishost', 'swinger_set')
 
 
 

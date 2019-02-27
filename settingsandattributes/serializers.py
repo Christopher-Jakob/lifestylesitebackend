@@ -50,3 +50,8 @@ class SwingerSignupDeclineReasonSerializer(serializers.ModelSerializer):
     class Meta:
         model = SwingerSignupDeclineReason
         fields = ('__all__')
+
+class SexualOrientationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SexualOrientation
+        fields = ('__all__')

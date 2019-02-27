@@ -5,6 +5,7 @@ from swingertypeviews import *
 from sextypeviews import *
 from swingerethnictypes import *
 from SwingerSignupDeclineReasonViews import *
+from sexualorientaionviews import *
 
 
 countryurls = [
@@ -47,6 +48,11 @@ swingersignupdeclinereasons = [
 
 ]
 
+sexualorientation = [
+    url('postgetall', PostGetAllSexualOrientation.as_view()),
+    url('detail/(?P<pk>([0-9]+))', SexualOrientationDetail.as_view())
+]
+
 settingsandattributesurls = [
     url('country/',include(countryurls)),
     url('stateandcity/',include(stateandcityurls)),
@@ -54,6 +60,7 @@ settingsandattributesurls = [
     url('swingertype/', include(swingertypeurls)),
     url('sextype/',include(sextypeurls)),
     url('ethnictype/',include(swingerethnictypes)),
-    url('swingerdeclinereason/', include(swingersignupdeclinereasons))
+    url('swingerdeclinereason/', include(swingersignupdeclinereasons)),
+    url('sexualorientation/', include(sexualorientation))
 
 ]
