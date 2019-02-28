@@ -36,6 +36,7 @@ class SwingerDeclineAcceptView(APIView):
             if not decline:
                 user = get_object_or_404(LifestyleUser, pk=pk)
                 # function to send email to user
+                user.is_active = True
                 user.isswingerapproved = True
                 user.save()
             return Response(status=status.HTTP_200_OK)
@@ -108,6 +109,7 @@ class SwingerUserSignup(APIView):
 
             if email != None:
                 print('this is a swinger full sign up')
+                password = data.get('password')
                 country = data.get('country')
                 country = get_object_or_404(Country, pk=country)
                 state = data.get('state')
@@ -135,7 +137,7 @@ class SwingerUserSignup(APIView):
 
                 try:
                     print('user is being created in full')
-                    user = LifestyleUser.objects.create_user(email=email, is_active=active, isswinger=True,
+                    user = LifestyleUser.objects.create_user(email=email, password=password, is_active=active, isswinger=True,
                                                              prelaunchsignup=prelaunchsignup)
                     swingpreference = data.get('swingertype')
                     swingpreference = get_object_or_404(SwingPreference, pk=swingpreference)
@@ -150,6 +152,11 @@ class SwingerUserSignup(APIView):
                     ethnicity2 = data.get('ethnicity2')
                     if ethnicity2 != None:
                         ethnicity2 = get_object_or_404(SwingerEthnicgroups, pk=ethnicity2)
+                    orientation1 = data.get('orientation1')
+                    orientation1 = get_object_or_404(SexualOrientation, pk=orientation1)
+                    orientation2 = data.get('orientation2')
+                    if orientation2 != None:
+                        orientation2 = get_object_or_404(SexualOrientation, pk=orientation2)
 
                     verificationphoto = data.get('verificationphoto')
                     verificationphotokey = data.get('verificationphotokey')
@@ -157,7 +164,9 @@ class SwingerUserSignup(APIView):
                     swinger = Swinger(user=user, swingertype=swingpreference, country=country,
                                       state=state, city=city, username=username, sex1=sex1, sex2=sex2,
                                       birthday1=birthday1, birthday2=birthday2, ethnicity1=ethnicity1,
-                                      ethnicity2=ethnicity2, verificationphoto=verificationphoto, verificationphotokey=verificationphotokey, verificationphotocode= verificationphotocode
+                                      ethnicity2=ethnicity2, orientation1 = orientation1, orientation2=orientation2,
+                                      verificationphoto=verificationphoto, verificationphotokey=verificationphotokey,
+                                      verificationphotocode= verificationphotocode
 
                                       )
                     swinger.save()

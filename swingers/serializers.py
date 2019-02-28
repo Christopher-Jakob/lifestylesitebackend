@@ -18,7 +18,7 @@ class SwingerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Swinger
-        fields = ('user', 'swingertype', 'country', 'state', 'city', 'username', 'sex1', 'sex2',
+        fields = ('user','swingertype', 'country', 'state', 'city', 'username', 'sex1', 'sex2',
                   'birthday1', 'birthday2', 'ethnicity1', 'ethnicity2', 'orientation1', 'orientation2',
                   'verificationphoto', 'verificationphotokey', 'verificationphotocode',
                   'wantsinglewoman', 'wantsingleman', 'wantcouplemanwoman', 'wantcouplewomanwoman',

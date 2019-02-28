@@ -40,6 +40,8 @@ class SwingerSignupserializer(serializers.Serializer):
     birthdaytwo = serializers.DateField(allow_null=True)
     ethnicity1 = serializers.IntegerField(allow_null=True)
     ethnicity2 = serializers.IntegerField(allow_null=True)
+    orientation1 = serializers.IntegerField(allow_null=True)
+    orientation2 = serializers.IntegerField(allow_null=True)
     verificationphoto = serializers.CharField(max_length=300)
     verificationphotocode = serializers.IntegerField()
     verificationphotokey = serializers.CharField(max_length=300)
@@ -56,7 +58,7 @@ class SwingerApplicationDeclineSerializer(serializers.Serializer):
 # used when a user is getting self
 
 class LifestyleUserSerializer(serializers.ModelSerializer):
-    swinger_set = SwingerSerializer()
+    swinger_set = SwingerSerializer(many=True)
 
     class Meta:
         model = LifestyleUser
