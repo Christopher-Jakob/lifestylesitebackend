@@ -25,6 +25,12 @@ class Swinger(models.Model):
     verificationphoto = models.CharField(max_length=300, blank=True, null=True)
     verificationphotokey = models.CharField(max_length=300, blank=True, null=True)
     verificationphotocode = models.CharField(max_length=6, blank=True, null=True)
+    bodytypeverificationphoto = models.CharField(max_length=300, blank=True, null=True)
+    bodytypeverificationphotokey = models.CharField(max_length=300, blank=True, null=True)
+    bodytypeverificationphotocode = models.CharField(max_length=6, blank=True, null=True)
+    optinbodytypefiltering = models.BooleanField(default=False)
+    allownonoptinbodytypeusers = models.BooleanField(default=False)
+    bodytypesubmissiondate = models.DateField(blank=True, null=True)
     wantsinglewoman = models.BooleanField(default=False)
     wantsingleman = models.BooleanField(default=False)
     wantsinglets = models.BooleanField(default=False)
@@ -34,6 +40,15 @@ class Swinger(models.Model):
     wantcouplemanman = models.BooleanField(default=False)
     wantcouplemants = models.BooleanField(default=False)
     wantcoupletsts = models.BooleanField(default=False)
+    wanthispanic = models.BooleanField(default=False)
+    wantlatino = models.BooleanField(default=False)
+    wantwhite = models.BooleanField(default=False)
+    wantblack = models.BooleanField(default=False)
+    wantasian = models.BooleanField(default=False)
+    wantnativeamerican = models.BooleanField(default=False)
+    wantpacificislander = models.BooleanField(default=False)
+    minpreferedage = models.IntegerField(blank=True, null=True)
+    maxpreferedage = models.IntegerField(blank=True, null=True)
 
 
 

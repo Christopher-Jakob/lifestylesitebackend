@@ -21,7 +21,7 @@ class ModifySwinger(APIView):
     def put(self, request, *args, **kwargs):
         instance = kwargs.get('pk', 0)
         instance = get_object_or_404(Swinger, pk=instance)
-        serializeddata = SwingPreferenceSerializer(instance, data=request.data, partial=True)
+        serializeddata = SwingerSerializer(instance, data=request.data, partial=True)
         if serializeddata.is_valid(raise_exception=True):
             serializeddata.save()
             return Response(serializeddata.data)
