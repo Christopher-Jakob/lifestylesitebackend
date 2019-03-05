@@ -23,8 +23,15 @@ class SwingerSerializer(serializers.ModelSerializer):
                   'verificationphoto', 'verificationphotokey', 'verificationphotocode',
                   'wantsinglewoman', 'wantsingleman', 'wantsinglets', 'wantcouplemanwoman', 'wantcouplewomanwoman',
                   'wantcouplewomants', 'wantcouplemanman', 'wantcouplemants', 'wantcoupletsts',
-                  'wanthispanic', 'wantlatino', 'wantwhite', 'wantwhite', 'wantblack', 'wantwhite',
-                  'wantasian', 'wantnativeamerican', 'wantpacificislander', 'minpreferedage', 'maxpreferedage')
+                  'wanthispanic', 'wantlatino', 'wantwhite', 'wantwhite', 'wantblack', 'wantwhite', 'wantsthinbodytype',
+                  'wantscurvybodytype','wantasian', 'wantnativeamerican', 'wantpacificislander', 'minpreferedage', 'maxpreferedage',
+                  'bodytypeverificationphoto','bodytypeverificationphotokey','bodytypeverificationphotocode',
+                  'optinbodytypefiltering','isbodybuilderbodytype1','isathleticbodytype1','isaveragebodytype1',
+                  'isthinbodytype1', 'iscurvybodytype1', 'isafewextrapoundsbodytype1', 'isheavysetbodytype1','isbodybuilderbodytype2',
+                  'isathleticbodytype2', 'isthinbodytype2', 'iscurvybodytype2','isaveragebodytype2','isafewextrapoundsbodytype2',
+                  'isheavysetbodytype2','wantsbodybuilderbodytype','wantsathleticbodytype','wantsaveragebodytype',
+                  'wantsafewextrapoundsbodytype','wantsheavysetbodytype','allownonoptinbodytypeusers',
+                  'bodytypesubmissiondate','bodytypeawaitingdecision','bodytypefilteractive')
 
 
 

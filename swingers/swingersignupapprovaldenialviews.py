@@ -17,3 +17,11 @@ class SwingerApprovalListGet(APIView):
         swingers = Swinger.objects.filter(user__in = LifestyleUser.objects.filter(isswinger=True, isswingerapproved=False))
         serializedswingers = SwingerSerializer(swingers, many=True)
         return Response(serializedswingers.data)
+
+
+class SwingerBodyTypeClassificationListGet(APIView):
+
+    def get(self, request, *args, **kwargs):
+        swingers = Swinger.objects.filter(bodytypeawaitingdecision = True)
+        serialized = SwingerSerializer(swingers, many=True)
+        return Response(serialized.data)

@@ -48,6 +48,3 @@ class SwingerEthnicgroups(models.Model):
 
 class SwingerSignupDeclineReason(models.Model):
     name = models.CharField(max_length = 200)
-
-class SwingerBodyTypes(models.Model):
-    name = models.CharField(max_length= 100)

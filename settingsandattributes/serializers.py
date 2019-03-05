@@ -56,7 +56,3 @@ class SexualOrientationSerializer(serializers.ModelSerializer):
         model = SexualOrientation
         fields = ('__all__')
 
-class SwingerBodyTypeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SwingerBodyTypes
-        fields = ('__all__')
