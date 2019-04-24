@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework import status
+from tools.geocoding import getlatlongcountry, getlatlongstate, getlatlongcity
 
 
 
@@ -69,6 +70,11 @@ class CreateCountryView(APIView):
             data = data.validated_data
             country = Country(**data)
             country.save()
+            pk = country.pk
+            coordinates = getlatlongcountry(pk)
+            country.lat = coordinates['lat']
+            country.long = coordinates['long']
+            country.save()
             createdcountry = CountrySerializer(country)
             return Response(createdcountry.data)
 
@@ -118,6 +124,11 @@ class CreateStateCityView(APIView):
                 data = data.validated_data
                 state = State(**data)
                 state.save()
+                pk = state.pk
+                coordinates = getlatlongstate(pk)
+                state.lat = coordinates['lat']
+                state.long = coordinates['long']
+                state.save()
                 serializeddata = StateSerializer(state)
                 return Response(serializeddata.data)
 
@@ -128,6 +139,11 @@ class CreateStateCityView(APIView):
             if data.is_valid(raise_exception=True):
                 data = data.validated_data
                 city = City(**data)
+                city.save()
+                pk = city.pk
+                coordinates = getlatlongcity(pk)
+                city.lat = coordinates['lat']
+                city.long = coordinates['long']
                 city.save()
                 serializeddata = CitySerializer(city)
                 return Response(serializeddata.data)

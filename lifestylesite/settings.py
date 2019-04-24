@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'lifestyleuser',
     'swingers',
     'hosts',
+    'checksandverifications',
     'verificationphotocode',
     'corsheaders',
     'rest_framework',
@@ -188,3 +189,7 @@ AWS_REGION = config('AWS_REGION')
 
 AWS_S3_BUCKET = 'libidinouslounge'
 AWS_BUCKET_ROOT_URI = config('AWS_BUCKET_ROOT_URI')
+
+# geo location api
+BASEGEOLOCATIONAPIURL = config('BASEGEOLOCATIONAPIURL')
+GEOLOCATIONAPIKEY = config('GEOLOCATIONAPIKEY')

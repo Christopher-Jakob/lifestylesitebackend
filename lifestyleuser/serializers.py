@@ -62,8 +62,11 @@ class LifestyleUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LifestyleUser
-        fields = ('email', 'isadmin', 'isswingerapproved', 'ishostapproved',
+        fields = ('pk','email', 'isadmin', 'isswingerapproved', 'ishostapproved',
                   'isswinger', 'ishost', 'swinger_set')
+
+class NewPasswordSerializer(serializers.Serializer):
+    password = serializers.CharField(max_length=100)
 
 
 

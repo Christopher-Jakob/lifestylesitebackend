@@ -19,6 +19,7 @@ from rest_framework_jwt.views import refresh_jwt_token
 from rest_framework_jwt.views import verify_jwt_token
 from settingsandattributes.urls import settingsandattributesurls
 from lifestyleuser.urls import userurls
+from checksandverifications.urls import checksandverificationurls
 from aws.urls import awsurls
 from passwordvalidateview import PasswordValidate
 from verificationphotocode.urls import verificationphotourls
@@ -36,7 +37,8 @@ rootapiurls = [
     url('siteadmin/', include(siteadminurls)),
     url('user/', include(userurls)),
     url('aws/',include(awsurls)),
-    url('verificationphoto/', include(verificationphotourls))
+    url('verificationphoto/', include(verificationphotourls)),
+    url('checksandverification/', include(checksandverificationurls))
 ]
 
 
